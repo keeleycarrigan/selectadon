@@ -1,0 +1,15 @@
+body {
+    padding: 1.5rem;
+}
+
+.half {
+    width: 50%;
+    padding: 1rem;
+    float: left;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+@import 'normalize';
+@import 'selectadon-settings';
+@import 'index';

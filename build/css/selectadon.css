@@ -1,0 +1,33 @@
+.sd-holder {
+  position: relative; }
+  .sd-holder .sd-btn {
+    height: 2rem;
+    width: 100%;
+    background-color: #fc4b6d;
+    color: #FFF;
+    line-height: 2rem;
+    text-decoration: none;
+    display: block; }
+    .sd-holder .sd-btn span {
+      display: inline-block; }
+  .sd-holder .sd-list {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: #FFF;
+    border: 1px solid #333;
+    border-top: none;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: none;
+    position: absolute;
+    left: 0;
+    z-index: 10; }
+    .sd-holder .sd-list li {
+      width: 100%;
+      list-style: none; }
+    .sd-holder .sd-list a {
+      width: 100%;
+      display: block; }
+  .sd-holder.open .sd-list {
+    display: block; }

@@ -1,0 +1,45 @@
+$sd-btn-height: 2rem;
+$sd-btn-color: #FC4B6D;
+
+.sd-holder {
+    position: relative;
+    .sd-btn {
+        height: $sd-btn-height;
+        width: 100%;
+        background-color: $sd-btn-color;
+        color: #FFF;
+        line-height: $sd-btn-height;
+        text-decoration: none;
+        display: block;
+        span {
+            display: inline-block;
+        }
+    }
+    .sd-list {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        background-color: #FFF;
+        border: 1px solid #333;
+        border-top: none;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        display: none;
+        position: absolute;
+        left: 0;
+        z-index: 10;
+        li {
+            width: 100%;
+            list-style: none;
+        }
+        a {
+            width: 100%;
+            display: block;
+        }
+    }
+    &.open {
+        .sd-list {
+            display: block;
+        }
+    }
+}

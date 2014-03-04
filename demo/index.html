@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+    <link rel="stylesheet" href="/css/selectadon-demo.css">
+</head>
+<body>
+    <h1>something stinks</h1>
+
+    <div class="half">
+        <select name="something" id="something">
+            <option value="thing-one">thing</option>
+            <option value="thing-two">thing 2</option>
+        </select>
+    </div>
+
+    <div class="half">
+        <select name="something-2" id="something-2">
+            <option value="thing-three">thing 3</option>
+            <option value="thing-four">thing 4</option>
+        </select>
+    </div>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="/js/selectadon.js"></script>
+    <script>
+        $('select').selectadon();
+    </script>
+</body>
+</html>
