@@ -45,7 +45,7 @@
 
         if (optLength > 0) {
             for (i = 0; i < optLength; i += 1) {
-                optData[$.trim($options.eq(i).attr('value'))] = $options.eq(i).text();
+                optData['_' + $.trim($options.eq(i).attr('value'))] = $options.eq(i).text();
             }
         }
 
@@ -69,7 +69,7 @@
         .on('click.sd touchstart.sd', 'a', {self: this}, this.selectActions);
 
         for (var option in this.selectOptions) {
-            var $option = $('<li><a href="#" data-value="' + option + '">' + this.selectOptions[option] + '</a></li>');
+            var $option = $('<li><a href="#" data-value="' + option.split('_')[1] + '">' + this.selectOptions[option] + '</a></li>');
 
             $option.appendTo($sdList);
         }
