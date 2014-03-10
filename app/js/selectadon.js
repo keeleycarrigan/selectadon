@@ -66,7 +66,7 @@
         $sdHolder
         .insertAfter(this.$el)
         .append([$sdBtn.append(sdBtnOrder), $sdList])
-        .on('click.sd touchstart.sd', 'a', {self: this}, this.selectActions);
+        .on('click.sd', 'a', {self: this}, this.selectActions);
 
         for (var option in this.selectOptions) {
             var $option = $('<li><a href="#" data-value="' + option.split('_')[1] + '">' + this.selectOptions[option] + '</a></li>');
