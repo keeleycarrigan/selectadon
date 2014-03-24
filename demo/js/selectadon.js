@@ -33,7 +33,7 @@
     }
 
     Plugin.prototype.init = function () {
-        this.$el.hide();
+        this.$el.on('change.sd', {self: this}, this.hiddenSelectActions);
 
         this.getSelectContent();
     };
@@ -66,7 +66,10 @@
         $sdHolder
         .insertAfter(this.$el)
         .append([$sdBtn.append(sdBtnOrder), $sdList])
-        .on('click.sd', 'a', {self: this}, this.selectActions);
+        .on('click.sd', 'a', {self: this}, this.optionListActions);
+
+        this.$el.detach().prependTo($sdHolder);
+        this.$sdHolder = $sdHolder;
 
         for (var option in this.selectOptions) {
             var $option = $('<li><a href="#" data-value="' + option.split('_')[1] + '">' + this.selectOptions[option] + '</a></li>');
@@ -76,23 +79,41 @@
 
     }
 
-    Plugin.prototype.selectActions = function  (e) {
+    Plugin.prototype.hiddenSelectActions = function (e, extra) {
+        var self = e.data.self;
+
+        /**
+            'extra' is sent only when the option sync triggers a select change.
+            When this is done we don't want to fire that method again.
+        **/
+        if (!extra) {
+            self.syncSelectedOption(self.$el.val(), e.type);
+        }
+    };
+
+    Plugin.prototype.optionListActions = function  (e) {
         e.preventDefault();
 
         var self = e.data.self,
             $clicked = $(e.currentTarget),
-            $select = $clicked.parents('.' + self.options.holderClass),
-            selectId = $select.data('id'),
             optVal;
 
-        if (!$clicked.hasClass('sd-btn')) {
+        if (!$clicked.hasClass(self.options.btnClass)) {
             optVal = $clicked.data('value');
 
-            $('#' + selectId).val(optVal).change();
-            $select.find('.' + self.options.txtClass).text($clicked.text());
+            self.syncSelectedOption(optVal, e.type);
         }
 
-        $select.toggleClass(self.options.openClass);
+        self.$sdHolder.toggleClass(self.options.openClass);
+    };
+
+    Plugin.prototype.syncSelectedOption = function(value, eventType) {
+        var btnTxt = !value || value === '' ? this.options.btnTxt : value,
+            selectVal = !value || value === '' ? '' : value;
+
+        this.$sdHolder.find('.' + this.options.txtClass).text(btnTxt);
+        this.$el.val(selectVal).trigger('change.sd', [true]);
+
     };
 
     $.fn[pluginName] = function (options) {
