@@ -408,3 +408,5 @@ th {
       display: block; }
   .sd-holder.open .sd-list {
     display: block; }
+  .sd-holder.centered {
+    text-align: center; }
