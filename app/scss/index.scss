@@ -5,14 +5,15 @@ $sd-btn-color: #FC4B6D;
     position: relative;
     select {
         width: 100%;
+        display: none;
         position: absolute;
         left: 0;
         top: 0;
-        z-index: 0;
         zoom: 1.5;
         opacity: 0;
 
         .touch & {
+            display: block;
             z-index: 15;
         }
     }

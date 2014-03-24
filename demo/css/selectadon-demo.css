@@ -366,13 +366,14 @@ th {
   position: relative; }
   .sd-holder select {
     width: 100%;
+    display: none;
     position: absolute;
     left: 0;
     top: 0;
-    z-index: 0;
     zoom: 1.5;
     opacity: 0; }
     .touch .sd-holder select {
+      display: block;
       z-index: 15; }
   .sd-holder .sd-btn {
     height: 2rem;

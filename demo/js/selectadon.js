@@ -33,6 +33,7 @@
     }
 
     Plugin.prototype.init = function () {
+        $(document).on('click', {self: this}, this.hide);
         this.$el.on('change.sd', {self: this}, this.hiddenSelectActions);
 
         this.getSelectContent();
@@ -91,8 +92,9 @@
         }
     };
 
-    Plugin.prototype.optionListActions = function  (e) {
+    Plugin.prototype.optionListActions = function (e) {
         e.preventDefault();
+        e.stopPropagation();
 
         var self = e.data.self,
             $clicked = $(e.currentTarget),
@@ -104,7 +106,23 @@
             self.syncSelectedOption(optVal, e.type);
         }
 
-        self.$sdHolder.toggleClass(self.options.openClass);
+        if (!self.$sdHolder.hasClass(self.options.openClass)) {
+            self.show();
+        } else {
+            self.hide();
+        }
+    };
+
+    Plugin.prototype.show = function (e) {
+        var self = e ? e.data.self : this;
+
+        self.$sdHolder.addClass(self.options.openClass);
+    };
+
+    Plugin.prototype.hide = function (e) {
+        var self = e ? e.data.self : this;
+
+        self.$sdHolder.removeClass(self.options.openClass);
     };
 
     Plugin.prototype.syncSelectedOption = function(value, eventType) {
