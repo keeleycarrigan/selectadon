@@ -364,6 +364,16 @@ th {
 
 .sd-holder {
   position: relative; }
+  .sd-holder select {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    zoom: 1.5;
+    opacity: 0; }
+    .touch .sd-holder select {
+      z-index: 15; }
   .sd-holder .sd-btn {
     height: 2rem;
     width: 100%;
@@ -371,7 +381,9 @@ th {
     color: #FFF;
     line-height: 2rem;
     text-decoration: none;
-    display: block; }
+    display: block;
+    position: relative;
+    z-index: 10; }
     .sd-holder .sd-btn span {
       display: inline-block; }
   .sd-holder .sd-list {

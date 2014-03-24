@@ -3,6 +3,19 @@ $sd-btn-color: #FC4B6D;
 
 .sd-holder {
     position: relative;
+    select {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 0;
+        zoom: 1.5;
+        opacity: 0;
+
+        .touch & {
+            z-index: 15;
+        }
+    }
     .sd-btn {
         height: $sd-btn-height;
         width: 100%;
@@ -11,6 +24,8 @@ $sd-btn-color: #FC4B6D;
         line-height: $sd-btn-height;
         text-decoration: none;
         display: block;
+        position: relative;
+        z-index: 10;
         span {
             display: inline-block;
         }
