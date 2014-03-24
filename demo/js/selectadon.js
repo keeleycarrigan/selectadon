@@ -134,11 +134,22 @@
 
     };
 
+    Plugin.prototype.destroy = function () {
+        this.$el.off('change.sd').detach().insertBefore(this.$sdHolder);
+        this.$sdHolder.remove();
+    };
+
+    Plugin.prototype.create = function () {
+        this.init();
+    };
+
     $.fn[pluginName] = function (options) {
         return this.each(function () {
             if (!$.data(this, 'plugin_' + pluginName)) {
                 $.data(this, 'plugin_' + pluginName,
                 new Plugin(this, options));
+            } else if ($.isFunction(Plugin.prototype[options])) {
+                $.data(this, 'plugin_' + pluginName)[options]();
             }
         });
     };
