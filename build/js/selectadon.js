@@ -3,6 +3,7 @@
         defaults = {
             selectData: {},
             holderClass: 'sd-holder',
+            modifierClass: '',
             btnClass: 'sd-btn',
             listClass: 'sd-list',
             txtClass: 'sd-text',
@@ -57,7 +58,7 @@
 
     Plugin.prototype.buildSelect = function () {
         var selectId = this.$el.attr('id'),
-            $sdHolder = $('<div>', {'class': this.options.holderClass, 'data-id': selectId}),
+            $sdHolder = $('<div>', {'class': $.trim(this.options.holderClass + ' ' + this.options.modifierClass), 'data-id': selectId}),
             $sdBtn = $('<a>', {'class': this.options.btnClass}),
             $sdBtnTxt = this.options.noBtnTxt === true ? null : $('<span>', {'class': this.options.txtClass, 'text': this.options.btnTxt}),
             $sdBtnIcon = this.options.noBtnIcon === true ? null : $('<span>', {'class': this.options.iconClass, 'html': this.options.btnIcon}),
