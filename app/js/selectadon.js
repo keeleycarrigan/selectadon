@@ -13,7 +13,8 @@
             btnTxt: null,
             btnIcon: '&#9660;',
             noBtnTxt: false,
-            noBtnIcon: false
+            noBtnIcon: false,
+            evtNamespace: 'sd'
         };
 
     function Plugin(element, options) {
@@ -35,7 +36,7 @@
 
     Plugin.prototype.init = function () {
         $(document).on('click', {self: this}, this.hide);
-        this.$el.on('change.sd', {self: this}, this.hiddenSelectActions);
+        this.$el.on('change.' + this.options.evtNamespace, {self: this}, this.hiddenSelectActions);
 
         this.getSelectContent();
     };
@@ -68,7 +69,7 @@
         $sdHolder
         .insertAfter(this.$el)
         .append([$sdBtn.append(sdBtnOrder), $sdList])
-        .on('click.sd', 'a', {self: this}, this.optionListActions);
+        .on('click.' + this.options.evtNamespace, 'a', {self: this}, this.optionListActions);
 
         this.$el.detach().prependTo($sdHolder);
         this.$sdHolder = $sdHolder;
@@ -131,12 +132,15 @@
             selectVal = !value || value === '' ? '' : value;
 
         this.$sdHolder.find('.' + this.options.txtClass).text(btnTxt);
-        this.$el.val(selectVal).trigger('change.sd', [true]);
+
+        if (eventType === 'click') {
+            this.$el.val(selectVal).trigger('change.' + this.options.evtNamespace, [true]);
+        }
 
     };
 
     Plugin.prototype.destroy = function () {
-        this.$el.off('change.sd').detach().insertBefore(this.$sdHolder);
+        this.$el.off('change.' + this.options.evtNamespace).detach().insertBefore(this.$sdHolder);
         this.$sdHolder.remove();
     };
 
