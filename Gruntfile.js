@@ -32,7 +32,7 @@ grunt.initConfig({
         },
         dist: {
             files: {
-                'build/css/selectadon.css': 'app/scss/index.scss'
+                'build/css/selectadon.css': 'app/scss/demo.scss'
             }
         }
     },

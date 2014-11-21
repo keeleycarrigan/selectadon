@@ -1,33 +1,101 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Hello</title>
-    <link rel="stylesheet" href="/css/selectadon-demo.css">
+	<meta charset="UTF-8">
+	<title>Hello</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/css/selectadon-demo.css">
 </head>
 <body>
-    <h1>Selectadon</h1>
+	<h1>Selectadon</h1>
 
-    <div class="half">
-        <select name="something" id="something">
-            <option value="">Dropdown Title</option>
-            <option value="1">One</option>
-            <option value="2">2</option>
-        </select>
-    </div>
+	<div class="row">
+		<div class="small-12 medium-6 columns">
+			<select name="dino-type" id="dino-type">
+				<option value="">Dinosaur Types</option>
+				<option value="t-rex">Tyrannosaurs</option>
+				<option value="sauropods">Sauropods</option>
+				<option value="ceratopsians">Ceratopsians</option>
+				<option value="raptors">Raptors</option>
+				<option value="ankylosaurs">Ankylosaurs</option>
+				<option value="dino-birds">Dino-Birds</option>
+				<option value="hadrosaurs">Hadrosaurs</option>
+				<option value="ornithomimids">Ornithomimids</option>
+				<option value="ornithopods">Ornithopods</option>
+				<option value="pachycephalosaurs">Pachycephalosaurs</option>
+			</select>
+		</div>
 
-    <div class="half touch">
-        <select name="something-2" id="something-2" data-sd-options='{"iconFirst": true, "modifierClass": "centered"}'>
-            <option value="">Select Name</option>
-            <option value="thing-three">thing 3</option>
-            <option value="thing-four">thing 4</option>
-        </select>
-    </div>
-    
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="/js/selectadon.js"></script>
-    <script>
-        $('select').selectadon();
-    </script>
+		<div class="small-12 medium-6 columns touch">
+			<select name="time-period" id="time-period" data-sd-options='{"iconFirst": true, "modifierClass": "centered"}'>
+				<option value="">Time Periods</option>
+				<option value="permian">Permian</option>
+				<option value="triassic">Triassic</option>
+				<option value="jurassic">Jurassic</option>
+				<option value="cretaceous">Cretaceous</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="small-6 large-3 columns">
+			<select name="all-fish" id="all-fish">
+				<option value="">All The Fish</option>
+				<option value="salmon">Salmon</option>
+				<option value="bass">Bass</option>
+				<option value="flounder">Flounder</option>
+				<option value="carp">Carp</option>
+				<option value="tuna">Tuna</option>
+				<option value="catfish">Catfish</option>
+			</select>
+		</div>
+		<div class="small-6 large-3 columns">
+			<select name="all-things" id="all-things" data-sd-options='{"holderClass": "sd-rounded"}'>
+				<option value="">All The Things</option>
+				<option value="thing-1">Thing 1</option>
+				<option value="thing-2">Thing 2</option>
+				<option value="thing-3">Thing 3</option>
+				<option value="thing-4">Thing 4</option>
+				<option value="thing-5">Thing 5</option>
+				<option value="thing-6">Thing 6</option>
+			</select>
+		</div>
+		<div class="small-6 large-3 columns">
+			<select name="all-numbers" id="all-numbers" data-sd-options='{"closeAll": false}'>
+				<option value="">All The Numbers</option>
+				<option value="1">One</option>
+				<option value="2">Two</option>
+				<option value="3">Three</option>
+				<option value="4">Four</option>
+				<option value="5">Five</option>
+				<option value="6">Six</option>
+			</select>
+		</div>
+		<div class="small-6 large-3 columns">
+			<select name="all-things" id="all-things">
+				<option value="">All The Things</option>
+				<option value="thing-1">Thing 1</option>
+				<option value="thing-2">Thing 2</option>
+				<option value="thing-3">Thing 3</option>
+				<option value="thing-4">Thing 4</option>
+				<option value="thing-5">Thing 5</option>
+				<option value="thing-6">Thing 6</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="row"></div>
+	<div class="columns"></div>
+	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="/js/selectadon.js"></script>
+	<script>
+		$('select').selectadon({
+			'iconClass': 'sd-icon fa fa-chevron-down'
+		}).on('change', function (e) {
+			console.log($(e.currentTarget).val());
+		});
+	</script>
 </body>
 </html>
