@@ -177,7 +177,7 @@
     };
 
     Plugin.prototype.destroy = function () {
-        this.$el.off('change' + this.options.evtNamespace).detach().insertBefore(this.$sdHolder);
+        this.$el.off('change' + this.options.evtNamespace, this.hiddenSelectActions).detach().insertBefore(this.$sdHolder);
         this.$sdHolder.remove();
     };
 
