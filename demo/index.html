@@ -40,7 +40,7 @@
 
 	<div class="row">
 		<div class="small-6 large-3 columns">
-			<select name="all-fish" id="all-fish">
+			<select name="all-fish" id="all-fish" data-sd-options='{"showEvt": "hover"}'>
 				<option value="">All The Fish</option>
 				<option value="salmon">Salmon</option>
 				<option value="bass">Bass</option>
@@ -93,8 +93,6 @@
 	<script>
 		$('select').selectadon({
 			'iconClass': 'sd-icon fa fa-chevron-down'
-		}).on('change', function (e) {
-			console.log($(e.currentTarget).val());
 		});
 	</script>
 </body>

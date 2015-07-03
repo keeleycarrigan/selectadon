@@ -1588,11 +1588,11 @@ th {
 html,
 body {
   height: 100%;
-  width: 100%;
-  padding: 0.5rem;
-  overflow: hidden; }
+  width: 100%; }
+
+body {
+  padding: 0.5rem; }
   @media only screen and (min-width: 40.063em) {
-    html,
     body {
       padding: 1.5rem; } }
 
@@ -1660,7 +1660,7 @@ li {
       color: #FFF;
       line-height: 3rem;
       display: block; }
-      .sd-holder .sd-list a:hover, .sd-rounded .sd-list a:hover {
+      .sd-holder .sd-list a.sd-selected, .sd-rounded .sd-list a.sd-selected, .sd-holder .sd-list a:hover, .sd-rounded .sd-list a:hover {
         background-color: #fe6a5a; }
   .sd-holder.open, .open.sd-rounded {
     z-index: 9999; }

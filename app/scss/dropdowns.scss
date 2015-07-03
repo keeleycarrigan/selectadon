@@ -69,7 +69,8 @@ $sd-btn-color-2: #FE8173;
 			color: #FFF;
 			line-height: $sd-btn-height;
 			display: block;
-
+			
+			&.sd-selected,
 			&:hover {
 				background-color: darken($sd-btn-color-2, 5%);
 			}
