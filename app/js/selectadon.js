@@ -110,6 +110,9 @@
             this.getSelectContent();
 
             this.options.onCreate(this);
+
+            //sync 
+            this.syncSelectedOption(this.$el.find(':selected').val(), 'click'); 
         },
         getSelectContent: function () {
             var $options = this.$el.find('option'),
@@ -237,6 +240,7 @@
             var btnTxt = !value || value === '' ? this.options.btnTxt : this.selectOptions['_' + value],
                 selectVal = !value || value === '' ? '' : value;
 
+            this.$sdHolder.find('a').removeClass(this.options.selectedClass);
             this.$sdHolder.find('.' + this.options.txtClass).text(btnTxt).end().find('[data-value="' + selectVal + '"]').addClass(this.options.selectedClass);
 
             if (eventType === 'click') {
